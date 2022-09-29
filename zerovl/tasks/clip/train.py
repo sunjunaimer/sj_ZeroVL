@@ -1,5 +1,6 @@
 import argparse
 import os
+import sys
 import torch
 
 from copy import deepcopy
@@ -7,6 +8,10 @@ try:
     from apex.parallel import convert_syncbn_model
 except ImportError:
     pass
+
+exec_path = os.path.abspath(os.path.dirname(os.path.realpath(__file__)))
+project_path = os.path.join(exec_path, '../../..')
+sys.path.insert(0, project_path)
 
 from zerovl.core import init_device
 from zerovl.datasets import DATALOADER
